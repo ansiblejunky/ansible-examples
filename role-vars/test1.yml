@@ -1,0 +1,47 @@
+- name: test playbook
+  hosts: localhost
+  gather_facts: no
+
+  roles:
+    - role1
+
+  tasks:
+    - name: show role1 variables
+      debug:
+        var: "{{ item }}"
+      with_items:
+        - role1_main_setfact_var
+        - role1_main_register_var
+        - role1_defaults_var
+        - role1_vars_var
+    
+    - name: workaround to expose the defaults in role2
+      include_vars: "roles/role2/defaults/main.yml"
+    - import_role:
+        name: role2
+
+    - name: show role2 variables
+      debug:
+        var: "{{ item }}"
+      with_items:
+        - role2_main_setfact_var
+        - role2_main_register_var
+        - role2_defaults_var
+        - role2_vars_var
+    
+    - include_role:
+        name: role3
+
+    - name: show role3 variables
+      debug:
+        var: "{{ item }}"
+      with_items:
+        - role3_main_setfact_var
+        - role3_main_register_var
+        - role3_defaults_var
+        - role3_vars_var
+
+
+- name: test playbook
+  hosts: localhost
+  gather_facts: yes

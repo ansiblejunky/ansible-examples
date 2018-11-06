@@ -1,0 +1,17 @@
+---
+- name: Play 1
+  hosts: localhost
+  gather_facts: false
+
+  tasks:
+   - name: Set custom fact
+     set_fact:
+        var_fact: value
+
+- name: Play 2
+  hosts: localhost
+  gather_facts: no
+
+  tasks:
+   - name: Facts remain available in a different Play
+     debug: var=var_fact

@@ -1,0 +1,26 @@
+- name: test playbook
+  hosts: localhost
+  gather_facts: no
+
+  tasks:
+    - import_role:
+        name: role_import_me
+  
+    - name: show role_import_me variables
+      debug:
+        var: "{{ item }}"
+      with_items:
+        - role_import_me_main_setfact_var
+        - role_import_me_main_register_var
+        - role_import_me_defaults_var
+        - role_import_me_vars_var
+
+
+    - name: show role_include_me variables
+      debug:
+        var: "{{ item }}"
+      with_items:
+        - role_include_me_main_setfact_var
+        - role_include_me_main_register_var
+        - role_include_me_defaults_var
+        - role_include_me_vars_var

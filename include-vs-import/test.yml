@@ -1,0 +1,21 @@
+---
+- hosts: localhost
+  gather_facts: no
+
+  tasks:
+
+    - debug: 
+
+    - import_role:
+        name: example
+      when: true
+
+#    - debug: var=role_var
+#    - debug: var=role_setfact_var
+
+#    - import_role: 
+#        name: example
+#      when: true
+
+#    - debug: var=role_var
+#    - debug: var=role_setfact_var

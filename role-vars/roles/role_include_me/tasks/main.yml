@@ -1,0 +1,7 @@
+- name: Set variable
+  set_fact: role_include_me_main_setfact_var=1
+
+- name: Register variable
+  debug: msg="test"
+  register: role_include_me_main_register_var
+

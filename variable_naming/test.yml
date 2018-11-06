@@ -1,0 +1,32 @@
+---
+- name: Test dashes and underscore in variable names
+  hosts: localhost
+  connection: local
+  gather_facts: no
+
+  tasks:
+
+  - name: Register `who` variable
+    command: whoami
+    register: who
+    
+  - name: Register `who-am-i` variable
+    command: whoami
+    register: who-am-i
+
+  - name: Register `who_am_i` variable
+    command: whoami
+    register: who_am_i
+
+  - name: show
+    debug:
+      msg: "output= {{who_am_i.stdout}}"
+
+  - name: show
+    debug: 
+      msg: "output= {{who.stdout}}"
+  
+  - name: show - fails with 'am' is undefined
+    debug:
+      msg: "output= {{who-am-i.stdout}}"
+

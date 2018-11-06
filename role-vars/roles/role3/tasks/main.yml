@@ -1,0 +1,6 @@
+- name: Set variable
+  set_fact: role3_main_setfact_var=3
+
+- name: Register variable
+  debug: msg="test"
+  register: role3_main_register_var

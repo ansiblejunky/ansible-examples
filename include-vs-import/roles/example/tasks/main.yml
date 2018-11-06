@@ -1,0 +1,3 @@
+- set_fact:
+    role_setfact_var: testvalue
+- debugger: 

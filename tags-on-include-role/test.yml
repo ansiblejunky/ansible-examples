@@ -1,0 +1,22 @@
+- name: Test using tags on include_role
+  hosts: localhost
+  gather_facts: false
+  connection: local
+
+  tasks:
+    - name: Include role common
+      include_role:
+        name: common
+
+    - name: Use special tag `always` to include role common
+      include_role:
+        name: common
+      tags:
+        - always
+
+    - name: Use custom tag `role_1` to include role common
+      include_role:
+        name: common
+      tags:
+        - role_1
+      

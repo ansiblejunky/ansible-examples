@@ -1,0 +1,10 @@
+- name: Set variable
+  set_fact: role_import_me_main_setfact_var=1
+
+- name: Register variable
+  debug: msg="test"
+  register: role_import_me_main_register_var
+
+- name: Include Role
+  import_role:
+    name: role_include_me

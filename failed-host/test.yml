@@ -1,0 +1,13 @@
+- hosts: localhost
+  gather_facts: no
+
+  tasks:
+    - block:
+        - fail:
+
+      rescue:
+        - name: Show all host variables
+          debug: var="hostvars['{{ inventory_hostname }}']"
+
+        - name: Show failed status
+          debug: var=ansible_failed_result['failed']

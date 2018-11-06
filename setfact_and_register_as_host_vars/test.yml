@@ -1,0 +1,16 @@
+---
+- hosts: localhost
+  gather_facts: false
+
+  tasks:
+
+  - name: Set a fact
+    set_fact:
+      var_setfact: value
+
+  - name: Register a variable
+    debug:
+    register: var_register
+
+  - name: List all host variables - notice both set_fact and register created host vars
+    debug: var=hostvars['{{ inventory_hostname }}']

@@ -1,0 +1,15 @@
+- name: Task 1
+  debug: msg="task no.1"
+  tags:
+    - task_1
+
+- name: Task 2
+  debug: msg="task no.2"
+  tags:
+    - task_2
+
+- name: Task 3
+  debug: msg="task no.3"
+  tags:
+    - task_3
+
