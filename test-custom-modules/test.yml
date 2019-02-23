@@ -1,0 +1,11 @@
+- hosts: localhost
+  gather_facts: no
+
+  tasks:
+    - debug:
+        msg: "Test if custom library is loaded"
+    - include_role:
+        name: custom_module
+    - custom_module:
+
+

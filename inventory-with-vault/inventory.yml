@@ -1,0 +1,24 @@
+all:
+  children:
+    database: {}
+    tower:
+      hosts:
+        tower1.example.com:
+          admin_password: redhat
+          ansible_become: 'true'
+          ansible_private_key_file: ~/.vagrant.d/insecure_private_key
+          ansible_ssh_common_args: -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no
+            -o PasswordAuthentication=no -o IdentitiesOnly=yes
+          ansible_ssh_user: vagrant
+          pg_database: awx
+          pg_host: ''
+          pg_password: redhat
+          pg_port: ''
+          pg_username: awx
+          rabbitmq_cookie: cookiemonster
+          rabbitmq_password: redhat
+          rabbitmq_port: 5672
+          rabbitmq_use_long_name: 'true'
+          rabbitmq_username: tower
+          rabbitmq_vhost: tower
+    ungrouped: {}
