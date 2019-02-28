@@ -14,3 +14,4 @@
 
   - name: List all host variables - notice both set_fact and register created host vars
     debug: var=hostvars['{{ inventory_hostname }}']
+

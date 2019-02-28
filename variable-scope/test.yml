@@ -7,6 +7,10 @@
    - name: Set custom fact
      set_fact:
         var_fact: value
+   - name: Register a variable
+     debug:
+        msg: "test registered variable"
+     register: var_register
 
 - name: Play 2
   hosts: localhost
@@ -15,3 +19,5 @@
   tasks:
    - name: Facts remain available in a different Play
      debug: var=var_fact
+   - name: Registered variables remain available in a different Play
+     debug: var=var_register

@@ -4,8 +4,10 @@
   tasks:
     - debug:
         msg: "Test if custom library is loaded"
-    - include_role:
-        name: custom_module
+    # Must use import instead of include; must be static loading of role!
+    - import_role:
+        name: custom_role
     - custom_module:
+        name: 'hello world'
 
 
